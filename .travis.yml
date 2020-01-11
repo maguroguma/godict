@@ -6,11 +6,15 @@ go:
 # before_install:
 #   - go get github.com/mattn/goveralls
 
+env: GO111MODULE=on
+
 install:
-  - go get github.com/rakyll/statik
+  # - go get github.com/rakyll/statik
+  - true
 
 script:
   - make test
+  - make godict
   # - goveralls -service=travis-ci
 
 before_deploy:

@@ -16,6 +16,7 @@ func TestLoadDictionary(t *testing.T) {
 func TestAllRowsHaveOneTab(t *testing.T) {
 	dictionary, _ := LoadDictionary()
 	expect := 2
+	outInterval := 10000
 
 	for i, str := range dictionary {
 		cols := strings.Split(str, "\t")
@@ -26,8 +27,10 @@ func TestAllRowsHaveOneTab(t *testing.T) {
 			t.Errorf("%d row have more than one tab", i)
 		}
 
-		if i >= 1000 && i%1000 == 0 {
+		if i >= outInterval && i%outInterval == 0 {
 			t.Logf("%d done\n", i)
 		}
 	}
+
+	t.Logf("done")
 }
