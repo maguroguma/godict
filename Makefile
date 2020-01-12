@@ -1,5 +1,5 @@
 godict:
-	@go build -o godict
+	go build -o godict
 
 .PHONY: clean
 clean:
