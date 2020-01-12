@@ -28,4 +28,3 @@ Space delimited words are used for AND search words.
 ## License
 
 This software is released under the MIT License, see [LICENSE](./LICENSE).
-
