@@ -31,8 +31,8 @@ func main() {
 		return
 	}
 
-	enDecorator := color.New(color.FgRed, color.Bold).SprintFunc()
-	jaDecorator := color.New(color.FgWhite, color.BgCyan).SprintFunc()
+	enDecorator := color.New(color.FgRed, color.Bold, color.Underline).SprintFunc()
+	jaDecorator := color.New(color.FgHiWhite, color.BgMagenta).SprintFunc()
 
 	for _, line := range dictionary {
 		sline := strings.ToLower(string(line))
