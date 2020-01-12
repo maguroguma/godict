@@ -15,6 +15,7 @@ install:
 script:
   - make test
   - make godict
+  - go build
   # - goveralls -service=travis-ci
 
 before_deploy:
