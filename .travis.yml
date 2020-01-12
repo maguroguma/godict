@@ -3,20 +3,19 @@ language: go
 go:
   - 1.13.x
 
-# before_install:
-#   - go get github.com/mattn/goveralls
-
-env: GO111MODULE=on
+env:
+  matrix:
+    - GO111MODULE=on
+  global:
+    secure: Bc8Q8W0fJUFr0hyhpwcTjEBYSoHYgfPQlKtKNS9JjzVI4zarY8wuGkvQmBdq0xr+Un39bzwsUwX+2blJQq8ala16kurp2bIFtUbsww2xsPWTNNPYHwisC4E5oBvzSMct8oH9ZTmRLw1E5raYP1xwwrT9VuDZB2P+8P7KzcmLMOE/03+uI7qvHEup517kvvPbWohD8FFVpvyUpmGm0CrUxvHRPxqcPpllnhDJIxEUOfrVQKWZAXn2cpvwItXr/gnl5aMJAqVl00orR04rYznyBHhoFZsC73InWMXPyKPOH81s6xaqZG+O7drxrzE45WHOjaPyuCeCvxj5O/FP/sd0p1lrjNLhmO9FEFszvW1srgW1aee9nvl2ZS4qP9JHEsO2ifMWpXwdkeejr+3uJWiJpM0etoeFpvBJolDoIN1hUt8GJjghGrd9apLW2tRLXCVPNYk02P8WQ3G5w7fgSC8fTh72z8LtHcpbaLQ0qdTuOFIzoBHOuwps9Xe2T986SV4XEGBsGXL2Dq9yXtUy7LFeXuMKI04CgVuJyDGJtoGcg+EZeK3M2kUhNRx/UQEGMRtnI8cakuG6m8bggqPR2CTGKRTWqlS1YLGuvPveU9i1zBXKhrCu9vFOjnvfuMr7Nw6sBPtNTQPsK6b1jAiladP2J1PxuaiqIX3qrpnoQqpS55k=
 
 install:
-  # - go get github.com/rakyll/statik
   - true
 
 script:
   - make test
   - make godict
   - go build
-  # - goveralls -service=travis-ci
 
 before_deploy:
   - go get github.com/mitchellh/gox
@@ -31,10 +30,10 @@ before_deploy:
 
 deploy:
   provider: releases
-  api_key: $GITHUB_TOKEN
+  api_key: "$GITHUB_TOKEN"
   file_glob: true
   file: godict-*-*.zip
   skip_cleanup: true
   on:
     tags: true
-    go: "1.13.x"
+    go: 1.13.x
