@@ -16,13 +16,14 @@ import (
 
 func main() {
 	var wordSlice []string
+
 	flag.Parse()
 	wordSlice = flag.Args()
+
+	// terminates when no args
 	if len(wordSlice) == 0 {
 		fmt.Fprint(os.Stdout, "please input some words\n")
-	}
-	for i, w := range wordSlice {
-		wordSlice[i] = strings.ToLower(w)
+		return
 	}
 
 	dictionary, err := statik.LoadDictionary()
@@ -33,6 +34,10 @@ func main() {
 
 	enDecorator := color.New(color.FgRed, color.Bold, color.Underline).SprintFunc()
 	jaDecorator := color.New(color.FgHiWhite, color.BgMagenta).SprintFunc()
+
+	for i, w := range wordSlice {
+		wordSlice[i] = strings.ToLower(w)
+	}
 
 	for _, line := range dictionary {
 		sline := strings.ToLower(string(line))
