@@ -1,6 +1,6 @@
 # godict
 
-[![Build Status](https://travis-ci.org/my0k/godict.svg?branch=master)](https://travis-ci.org/my0k/godict)
+[![Build Status](https://travis-ci.org/maguroguma/godict.svg?branch=master)](https://travis-ci.org/github/maguroguma/godict)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE)
 
 `godict` is a simple dictionary in terminals written in Go.
